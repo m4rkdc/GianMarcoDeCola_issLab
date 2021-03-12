@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+    
+<head>
+   
+<title>decola_gianmarco_issCE</title>
+</head>
+    
+<body>
+	<div id="top">
+		<h1>Lab ISS | Cautious Explorer <font size="5"></font> </h1>
+	</div>  
+
+	<div class="body"> 
+		<h2>Introduction</h2>
+		<div class="remark">
+			Our motto:<br/>   <k>there is no code without a project, no project
+			without problem analysis and no problem without requirements</k>.
+		</div>
+		<h2>Requirements</h2>
+		<div class="remark">
+			Design and build a software system that allow the robot described in 
+			<a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html" target="lab"><em>VirtualRobot2021.html</em></a>
+			to exibit the following behaviour:
+			<ul>
+				<li>the robot lives in a closed environment, delimited by walls that includes one or more devices (e.g. sonar) able to detect its presence;</li>
+				<li>the robot has a <ks>den</ks> for refuge, located near a wall;</li>
+				<li>the robot works as an <i>explorer of the environment</i>. Starting from its <ks>den</ks>,  the robot moves
+				(either randomly or - preferably - in a more organized way) with the aim to find the fixed obstacles around the <ks>den</ks>. 
+				The presence of mobile obstacles is (at the moment) excluded;</li>
+				<li>since the robot is <i>'cautious'</i>,  it  returns immediately to the <ks>den</ks> as soon as it finds an obstacle.
+				Optionally, it should also return to the <ks>den</ks> when a sonar detects its presence;</li>
+				<li>The robot should remember the position of the obstacles found, by creating a sort of 'mental map' of the environment.</li>
+			</ul>
+		</div>
+
+		<h3>Delivery</h3>
+		The customer requires to receive the completion of the analysis (of the requirments and of the problem)  by <k>Friday 12 March</k>. 
+		Hopefully, he/she expects to receive also (in the same document) some detail about the project.<br/>
+		The name of the file (in pdf) should be:
+		<pre>
+cognome_nome_ce.pdf
+		</pre>
+
+		<h2>Requirement analysis</h2>
+		<div>
+			<h3>Domain Analysis: critical nouns and verbs definition</h3>
+			<ul>
+			<li><k>Software system</k>: system made of intercommunicating components based on software;</li></br>
+			<li><k>Closed space</k>: a real/virtual room made of four walls;</li></br>
+			<li><k>Sonar</k>: device that makes use of the sound propagation to detect objects in its range;</li></br>
+			<li><k>Robot</k>: real/virtual object capable of moving in the four cardinal directions and capable of communicating with our software. The robots also has ability to aknowledge a collision and communicate it. The robot also has the ability to acknowledge if a sonar has detected its presence;</li></br>
+			<li><k>Den</k>: starting position of the robot in the closed space. It must be located near one of the walls closing the space. It can change in different runs of the software;</li></br>
+			<li><k>Map</k>: an indication of the environment the robot is in. It tracks the positions already visited by the robot and the obstacles it has found.</li></br>
+		</ul>
+		<h3>Schematized requirements</h3>
+		<div class="remark">
+			The requirements can be referenced in this document by their identifier (number of the requirement)
+		</div>
+		<ol>
+			<li>Our software has to <k>communicate</k> with a robot. The robot is provided by the client and its features are included in <a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html">VirtualRobot2021.html</a>.</li></br>
+			<li>Our software has the ability to <k>instruct</k> the robot about the movement to take.</li></br>
+			<li>Our software has the ability to <k>instruct</k> the robot about how long it has to move.</li></br>
+			<li>Our software has the ability to <k>receive information</k> from the robot (e.g. hypothetic collisions).</li></br>
+			<li>The robot <k>must start</k> from its <k>den</k>. Our software has to instruct it on how to <k>return</k> to the <k>den</k> immediately after it acknowledges a collision or that a sonar has detected its presence.</li></br>
+			<li>Our software must dinamically <k>create</k> a map of the environment that keeps track of the <k>obstacles</k> found by the robot in previous runs.</li></br>
+		</ol>
+		<h3>User story</h3>
+		As a user I have no power over the software. I can't stop the execution of the sotware. The software will have to instruct the robot, starting from its den, to walk randomly through the room before colliding or being detected by a sonar. After the robot has acknowledged one of the two previous <k>events</k>, it must be instructed by the software to return back to its den.
+		At every run of the software, it has to keep track of the movements made and obstacles found by the robot.
+		<h3>First test plan ideas</h3>
+		Ensure that our software can successfully communicate with the robot and can receive information generated by it.</br>
+		Ensure that the robot returns to its den after a collision with an obstacle or upon dectection by the sonar. 
+		<div class="remark">
+			This tests must be conducted by the software itself, without any human intevention.
+		</div>
+	</div>
+	<h2>Problem Analysis</h2>
+	<div>
+		<h3>Main problems</h3>
+		The requirements and the requirement analysis phase highlighted the need of creating a software system made by two components:<br/>
+		<ol>
+			<li>The robot given by the customer and its virtual interface<k>(Wenv)</k></li>
+			<li>Our software <k>(cautiousExplorer)</k> that has to instruct the robot in order to satisfy the requirements</li>
+		</ol>
+		Given the requirements implied by the robot's documentation (<a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html#commands">VirtualRobot2021.html</a>), commands can be given to the robot via:<br/>
+		<ul>
+			<li>HTTP POST requests on TCP port 8090</li>
+			<li>Websocket requests on TCP port 8091</li>
+		</ul>
+		We also know that every failed move by the robot and every detection by a sonar is logged by Wenv by sending a JSON string to the clients connected to the TCP port 8091. This can be useful to trigger the returning to the den phase (Requirement 5).
+		HTTP POST request will surely be sufficient to dictate the commands to the robot but, in regards to the robot's communication to the application, it must be noted that they appear to be answers to certain events ("Robot as sender of information" section in <a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html">VirtualRobot2021.html</a>).
+		This implies an asynchronous behaviour, for which the use of the Websocket requests is a more appropriate solution.<br/>
+		Finally, every command given to the robot and every collision should also be logged into a map form (by requirement 6).
+		With this in mind we can immagine that a possible solution to the problem could be obtained by this pseudo-code algorithm:<br/>
+		<pre>
+DEN=upper-right corner of the room
+DOWN=south direction
+MAP=blank matrix
+robot starts in DEN
+repeat until collision OR until detection by sonar (check these events on port 8091 messages): 
+	cautiousExplorer sends a random command to the robot
+	cautiousExplorer logs the command into MAP
+log the event into MAP
+go back to DEN
+		</pre>
+		<h3>Technologies and architectures</h3>
+		Libraries that allow the means of communication required by the robot are common in many high-level 
+		programming languages;  this fact implies that <k>no abstraction gap</k> on the operative side is identified. 
+		The choice of which language to use is delegated to the project phase but, indipendently on the choice, 
+		some form of design pattern should be used to ensure <k>maximux abstraction</k> between the buisness logic and 
+		the communication protocols used</k> (to grant reusability and possibility to change communication protocol if needed).
+		<div class="remark">
+			On the architectural side, the requirements require a simple <k>client-server</k> architecture based on a <k>request-response</k> pattern.
+			An exception is given by the robot's ability to send information spontaneously: this reality implies an <k>event-driven</k> architecture.
+		</div>
+		<h3>Man-hour costs</h3>
+		The application is expected to be developed in one day work (at most).
+		<h3>Logic Architecture</h3>
+		For the symbols used, please refer to the following key<br/>
+		<td style="width:50%">
+			<center><img src="./img/legenda.png" width="20%" height="20%"></center>
+		</td>
+		Our software exact nature will be defined in the project phase but we know from our clients specifications that 
+		the robot is equipped with a small server (Wenv) that accepts commands in a custom command set called <a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html#cril"><k>cril</k></a> (concrete-robot interaction language)<br/>
+
+		<td style="width:50%" >
+			<center><img src="./img/logicArch.png" width="50%" ></center>
+		</td>
+		<center><k>THE ABOVE FIGURE DOES NOT REPRESENT THE CONCRETE SYSTEM, THAT WILL BE DEFINED IN THE PROJECT PHASE</k></center> 
+		<h2>Test Plan</h2>
+		Refer to the following symbols for the commands to send to the robot (based on the <a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html#cril" target="web">cril</a>):
+		<pre>
+<ks>w</ks> : identifies <kc>{"robotmove":"moveForward", "time": 600}</kc>
+<ks>s</ks> : identifies <kc>{"robotmove":"moveBackward", "time ":600}</kc>
+<ks>h</ks> : identifies <kc>{"robotmove":"alarm", "time ":100}</kc>
+<ks>l</ks> : identifies <kc>{"robotmove":"turnLeft ",   "time ":300}</kc>
+<ks>r</ks> : identifies <kc>{"robotmove":"turnRight",   "time ":300}</kc>
+		</pre>
+		After the analysis, we can suggest this test strategy:
+		<ol>
+			<li>For every successful move, add the command id to a <kc>explore</kc> string (initially empty).</li></br>
+			<li>Fix the <kc>time</kc> value for the <ks>w,s</ks> commands to move the robot for a distance that is equal to its length.</li></br>
+			<li>Upon collision or detection, for every successful move, add the  command id to a <kc>return</kc> string (initially empty).</li></br>
+			<li>Check if the return string is the complete opposite of the explore string.</li></br>
+		</ol>
+		These can be a moves string example at the end of a successful testing:
+		<pre>
+<kc>explore</kc>: <ks>"wwlwrwwrwwl"</ks>
+<kc>return</kc>:  <ks>"ssrslsslssr"</ks>
+		</pre>
+	</div>  
+	<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+	By Gian Marco De Cola</br>email: gianmarco.decola@studio.unibo.it</br>Github: <a href=https://github.com/m4rkdc/GianMarcoDeCola_issLab.git>https://github.com/m4rkdc/DeColaGianMarcoissLab.git</a></br>	
+	<img src="./img/fototessera gmdc.jpg" alt="mbot" width="15%" height="15%">
+	</div> 
+</body>
+</html>
